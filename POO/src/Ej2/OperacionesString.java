@@ -1,3 +1,5 @@
+package Ej2;
+
 public class OperacionesString {
     public static String iniciales(String nombre, String apellido1, String apellido2) {
         return nombre.charAt(0) + ", " + apellido1.charAt(0) + ", " + apellido2.charAt(0);
