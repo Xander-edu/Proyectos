@@ -1,11 +1,11 @@
 public class Juego {
-    private int elTurno;
+    private boolean elTurno; // Como el color de pieza: true = BLANCAS , false = NEGRAS
 
-    public int getTurno() {
+    public boolean getTurno() {
         return elTurno;
     }
 
-    public void setTurno(int elTurno) {
+    public void setTurno(boolean elTurno) {
         this.elTurno = elTurno;
     }
 

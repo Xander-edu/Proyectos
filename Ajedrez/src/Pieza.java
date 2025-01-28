@@ -1,21 +1,25 @@
 public abstract class Pieza {
     // ******* ATRIBUTOS *******
-    String color;
+    boolean color; // true = BLANCO , false = NEGRO
     String nombre;
 
     // ******* CONSTRUCTORES *******
-    public Pieza(String color, String nombre) {
+    public Pieza(boolean color, String nombre) {
         this.color = color;
         this.nombre = nombre;
     }
 
     // ******* GETTERS *******
-    public String getColor() {
+    public boolean getColor() {
         return color;
     }
 
     // ******* MÉTODOS *******
     public abstract boolean validoMovimiento (Movimiento mov);
+
+    public String pintarPieza() {
+        return nombre;
+    }
 
     public String toString() {
         return super.toString();
