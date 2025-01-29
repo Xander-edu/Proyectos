@@ -10,6 +10,6 @@ public class Juego {
     }
 
     public Movimiento jugada(String jugada, Tablero tablero) {
-
+        return null;
     }
 }

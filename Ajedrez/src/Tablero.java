@@ -28,8 +28,8 @@ public class Tablero {
         tablero[7][5] = new Alfil(true, "\u2657");  // Alfil blanco derecha
 
         // Damas
-        tablero[0][3] = new Dama(false, "\u265B"); // Dama negra
-        tablero[7][3] = new Dama(true, "\u2655");  // Dama blanca
+        tablero[0][3] = new Reina(false, "\u265B"); // Reina negra
+        tablero[7][3] = new Reina(true, "\u2655");  // Reina blanca
 
         // Reyes
         tablero[0][4] = new Rey(false, "\u265A"); // Rey negro
@@ -41,12 +41,12 @@ public class Tablero {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 if (hayPieza(i,j)) {
-                    System.out.print(devuelvePieza(i,j).pintarPieza());
+                    System.out.print("\u2006\u2006" + devuelvePieza(i,j).pintarPieza()); // \u2006 es un espacio para centrar las piezas mas
                 } else {
                     if ((i + j) % 2 == 0) {
-                        System.out.print(" \u25A1 "); // Cuadrado blanco
+                        System.out.print(" \u25A1"); // Cuadrado blanco
                     } else {
-                        System.out.print(" \u25A0 "); // Cuadrado negro
+                        System.out.print(" \u25A0"); // Cuadrado negro
                     }
                 }
             }
@@ -59,11 +59,11 @@ public class Tablero {
     }
 
     public boolean hayPieza(Posicion pos) {
-        return tablero[pos.getFila()][pos.getColumna()] != null;
+        return hayPieza(pos.getFila(), pos.getColumna());
     }
 
     public boolean hayPiezasEntre (Movimiento mov) {
-
+        return false;
     }
 
     public void ponPieza (Pieza figura, int fila, int columna) {
@@ -71,7 +71,7 @@ public class Tablero {
     }
 
     public void ponPieza (Pieza figura, Posicion pos) {
-        tablero[pos.getFila()][pos.getColumna()] = figura;
+        ponPieza(figura, pos.getFila(), pos.getColumna());
     }
 
     public void quitaPieza (int fila, int columna) {
@@ -79,7 +79,7 @@ public class Tablero {
     }
 
     public void quitaPieza (Posicion pos) {
-        tablero[pos.getFila()][pos.getColumna()] = null;
+        quitaPieza(pos.getFila(), pos.getColumna());
     }
 
     public Pieza devuelvePieza (int fila, int columna) {
@@ -87,6 +87,6 @@ public class Tablero {
     }
 
     public Pieza devuelvePieza (Posicion pos) {
-        return tablero[pos.getFila()][pos.getColumna()];
+        return devuelvePieza(pos.getFila(), pos.getColumna());
     }
 }

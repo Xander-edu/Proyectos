@@ -1,11 +1,11 @@
-public class Torre extends Pieza     {
+public class Reina extends Pieza     {
     // ******* CONSTRUCTORES *******
-    public Torre(boolean color, String nombre) {
+    public Reina(boolean color, String nombre) {
         super(color, nombre);
     }
 
     // ******* MÉTODOS *******
     public boolean validoMovimiento (Movimiento mov) {
-        return mov.esVertical() || mov.esHorizontal();
+        return false;
     }
 }

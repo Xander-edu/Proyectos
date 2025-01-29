@@ -16,18 +16,22 @@ public class Movimiento {
 
     // ******* MÉTODOS *******
     public boolean esVertical() {
-
+        return false;
     }
 
     public boolean esHorizontal() {
-
+        return false;
     }
 
     public boolean esDiagonal() {
-
+        return false;
     }
 
-    public int saltoHorizontal() {}
+    public int saltoHorizontal() {
+        return 0;
+    }
 
-    public int saltoVertical() {}
+    public int saltoVertical() {
+        return 0;
+    }
 }
