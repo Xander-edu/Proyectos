@@ -16,22 +16,22 @@ public class Movimiento {
 
     // ******* MÉTODOS *******
     public boolean esVertical() {
-        return false;
+        return posInicial.getColumna() == posFinal.getColumna();
     }
 
     public boolean esHorizontal() {
-        return false;
+        return posInicial.getFila() == posFinal.getFila();
     }
 
     public boolean esDiagonal() {
-        return false;
+        return posInicial.getFila() != posFinal.getFila() && posInicial.getColumna() != posFinal.getColumna();
     }
 
     public int saltoHorizontal() {
-        return 0;
+        return posFinal.getColumna() - posInicial.getColumna();
     }
 
     public int saltoVertical() {
-        return 0;
+        return posFinal.getFila() - posInicial.getFila();
     }
 }

@@ -10,6 +10,9 @@ public class Juego {
     }
 
     public Movimiento jugada(String jugada, Tablero tablero) {
+        int columnaInicial = jugada.charAt(0) - 'A';
+        int filaInicial = jugada.charAt(1) - '1';
+
         return null;
     }
 }

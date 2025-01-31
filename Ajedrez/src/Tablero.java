@@ -62,8 +62,54 @@ public class Tablero {
         return hayPieza(pos.getFila(), pos.getColumna());
     }
 
-    public boolean hayPiezasEntre (Movimiento mov) {
-        return false;
+    public boolean hayPiezasEntre(Movimiento mov) {
+        boolean piezaDetectada = false;
+        int filaInicialMov = mov.posInicial.getFila();
+        int columnaInicialMov = mov.posInicial.getColumna();
+        int filaFinalMov = mov.posFinal.getFila();
+        int columnaFinalMov = mov.posFinal.getColumna();
+
+        if (mov.esVertical()) {
+            if (filaFinalMov < filaInicialMov) {
+                int aux = filaFinalMov;
+                filaFinalMov = filaInicialMov;
+                filaInicialMov = aux;
+            }
+            for (int i = filaInicialMov + 1; i < filaFinalMov; i++) {
+                if (hayPieza(i, columnaInicialMov))
+                    piezaDetectada = true;
+            }
+        } else if (mov.esHorizontal()) {
+            if (columnaFinalMov < columnaInicialMov) {
+                int aux = columnaFinalMov;
+                columnaFinalMov = columnaInicialMov;
+                columnaInicialMov = aux;
+            }
+            for (int i = columnaInicialMov + 1; i < columnaFinalMov; i++) {
+                if (hayPieza(filaInicialMov, i))
+                    piezaDetectada = true;
+            }
+        } else if (mov.esDiagonal()) {
+            if (filaFinalMov < filaInicialMov) {
+                int aux = filaFinalMov;
+                filaFinalMov = filaInicialMov;
+                filaInicialMov = aux;
+            }
+            if (columnaFinalMov < columnaInicialMov) {
+                int aux = columnaFinalMov;
+                columnaFinalMov = columnaInicialMov;
+                columnaInicialMov = aux;
+            }
+            for (int i = filaInicialMov + 1; i < filaFinalMov; i++) {
+                for (int j = columnaInicialMov + 1; j < columnaFinalMov + 2; j++) {
+                    if (hayPieza(i, j))
+                        piezaDetectada = true;
+                }
+                columnaInicialMov++;
+            }
+        }
+
+        return piezaDetectada;
     }
 
     public void ponPieza (Pieza figura, int fila, int columna) {
