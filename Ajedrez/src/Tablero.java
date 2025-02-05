@@ -40,6 +40,13 @@ public class Tablero {
     public void pintarTablero() {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
+                if (j == 0) {
+                    if (i == 0)
+                        System.out.print("A ");
+                    else if (i == 1) {
+                        System.out.print("B ");
+                    }
+                }
                 if (hayPieza(i,j)) {
                     System.out.print("\u2006\u2006" + devuelvePieza(i,j).pintarPieza()); // \u2006 es un espacio para centrar las piezas mas
                 } else {
