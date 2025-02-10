@@ -38,15 +38,21 @@ public class Tablero {
 
     // ******* MÉTODOS *******
     public void pintarTablero() {
+        // Imprimir los números de las columnas
+        for (int i = 0; i < tablero.length; i++) {
+            if (i == 0)
+                System.out.print("  \u2006\u2006");
+            System.out.print((i + 1) + "\u2006 ");
+        }
+        System.out.println();
+
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
+                // Imprimir las letras de las filas
                 if (j == 0) {
-                    if (i == 0)
-                        System.out.print("A ");
-                    else if (i == 1) {
-                        System.out.print("B ");
-                    }
+                    System.out.print((char) ('A' + i) + " ");
                 }
+
                 if (hayPieza(i,j)) {
                     System.out.print("\u2006\u2006" + devuelvePieza(i,j).pintarPieza()); // \u2006 es un espacio para centrar las piezas mas
                 } else {

@@ -19,6 +19,7 @@ public class Strings {
                 // Si no se especifica idioma usar el inglés
             case "en":
                 switch (string) {
+                    // Clase main
                     case "empezarJuego":
                         return "Starting game...";
                     case "turnoBlancas":
@@ -27,6 +28,9 @@ public class Strings {
                         return "---------------------------------------\n|             BLACKS turn             |\n---------------------------------------";
                     case "introduceJugada":
                         return "Introduce move (Example: A2B3):";
+                    case "errPiezasEnMedio":
+                        return "Error: There are pieces in between.";
+                    // Clase Juego
                     case "errLongitudJugada":
                         return "Error: The move must have 4 characters. (Example: A2B3)";
                     case "errFormato":
@@ -41,6 +45,7 @@ public class Strings {
 
             case "es":
                 switch (string) {
+                    // Clase main
                     case "empezarJuego":
                         return "Empezando el juego...";
                     case "turnoBlancas":
@@ -49,6 +54,9 @@ public class Strings {
                         return "-----------------------------------------\n|             Turno NEGRAS              |\n-----------------------------------------";
                     case "introduceJugada":
                         return "Introduce jugada (Ejemplo: A2B3):";
+                    case "errPiezasEnMedio":
+                        return "Error: Hay piezas en medio.";
+                    // Clase Juego
                     case "errLongitudJugada":
                         return "Error: La jugada debe tener 4 caracteres. (Ejemplo: A2B3)";
                     case "errFormato":
@@ -59,6 +67,7 @@ public class Strings {
                         return "Error: Esa pieza no te pertenece.";
                     case "errCanibal":
                         return "Error: No puedes comerte tus propias piezas.";
+
                 }
         }
         return "STRING NOT LOCALISED";

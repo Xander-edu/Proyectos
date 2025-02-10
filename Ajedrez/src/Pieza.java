@@ -14,6 +14,10 @@ public abstract class Pieza {
         return color;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     // ******* MÉTODOS *******
     public abstract boolean validoMovimiento (Movimiento mov);
 

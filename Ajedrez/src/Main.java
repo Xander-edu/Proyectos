@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         boolean finJuego = false;
+        boolean valido = false;
         Tablero tablero = new Tablero();
         Juego juego = new Juego();
         Scanner sc = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class Main {
             strings.setIdioma("en");
         else if (opcion == 2)
             strings.setIdioma("es");
-        System.out.println(strings.toString(idioma,"empezarJuego")+"\n");
+        System.out.println(strings.toString(idioma, "empezarJuego") + "\n");
 
         // Limpiar escáner
         sc.nextLine();
@@ -32,14 +33,28 @@ public class Main {
             tablero.pintarTablero();
 
             do {
+                valido = false;
                 System.out.println(strings.toString(idioma, "introduceJugada"));
                 String jugada = sc.nextLine().toUpperCase();
-                if (jugada.equals("QUIT") || jugada.equals("SALIR"))
+
+                if (jugada.equals("QUIT") || jugada.equals("SALIR")) {
                     finJuego = true;
+                    break;
+                }
+
                 mov = juego.jugada(jugada, tablero, strings);
-            } while (mov == null);
+
+                if (mov != null) {
+                    if ((tablero.hayPiezasEntre(mov) && !tablero.devuelvePieza(mov.posInicial).getNombre().equals("\u265E")) || (tablero.hayPiezasEntre(mov) && !tablero.devuelvePieza(mov.posInicial).getNombre().equals("\u2658")))
+                        System.out.println(strings.toString(idioma, "errPiezasEnMedio"));
+                    else
+                        valido = true;
+                }
+            } while (!valido);
+
             tablero.ponPieza(tablero.devuelvePieza(mov.posInicial), mov.posFinal);
             tablero.quitaPieza(mov.posInicial);
+
             juego.setTurno(!juego.getTurno());
         } while (!finJuego);
     }

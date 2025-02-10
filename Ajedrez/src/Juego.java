@@ -38,16 +38,18 @@ public class Juego {
             Posicion posFinal = new Posicion(filaFinal, columnaFinal);
 
             // Debe haber una pieza en la posición inicial, si no que estás moviendo?
-            if (!tablero.hayPieza(posInicial))
+            if (!tablero.hayPieza(posInicial)) {
                 System.out.println(strings.toString(idioma, "errNoPieza"));
-            // El color de la pieza debe ser del turno del mismo color, tramposo
-            else if (tablero.devuelvePieza(posInicial).getColor() != getTurno())
+                // El color de la pieza debe ser del turno del mismo color, tramposo
+            } else if (tablero.devuelvePieza(posInicial).getColor() != getTurno()) {
                 System.out.println(strings.toString(idioma, "errColorIncorrecto"));
-            else if (tablero.devuelvePieza(posFinal).getColor() == getTurno())
-                System.out.println(strings.toString(idioma, "errCanibal"));
-            else
+            } else if (tablero.hayPieza(posFinal)) {
+                if (tablero.devuelvePieza(posFinal).getColor() == getTurno())
+                    System.out.println(strings.toString(idioma, "errCanibal"));
+            } else {
                 // Si todo va bien crea una instancia del movimiento
                 mov = new Movimiento(posInicial, posFinal);
+            }
         }
         return mov;
     }
